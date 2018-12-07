@@ -2,7 +2,7 @@ Apache Sling Scripting Resolver (WIP, name not final)
 ====
 
 ## What
-The `org.apache.sling.scripting.resolver` bundle represents an add-on module that can be deployed on a Sling 10 instance to
+The `org.apache.sling.scripting.bundle.tracker` bundle represents an add-on module that can be deployed on a Sling 10 instance to
 enhance the scripting resolving capabilities. Being an add-on, the bundle hooks into Sling's current mechanisms for
 content-to-servlet resolution and essentially acts as a service registration broker for bundles providing scripting
 capabilities (more details in the ["How"](#how) section).
