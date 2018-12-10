@@ -1,8 +1,8 @@
-Apache Sling Scripting Resolver (WIP, name not final)
+Apache Sling Scripting Bundle Tracker
 ====
 
 ## What
-The `org.apache.sling.scripting.bundle.tracker` bundle represents an add-on module that can be deployed on a Sling 10 instance to
+The `org.apache.sling.scripting.bundle.tracker` bundle represents an add-on module that can be deployed on a Sling 10 instance or newer to
 enhance the scripting resolving capabilities. Being an add-on, the bundle hooks into Sling's current mechanisms for
 content-to-servlet resolution and essentially acts as a service registration broker for bundles providing scripting
 capabilities (more details in the ["How"](#how) section).
@@ -22,7 +22,7 @@ context. As such, scripts should be handled like code:
   3. they have a _developer audience_.
 
 ## How
-Being built around a `BundleTrackerCustomizer` [2], the Scripting Resolver monitors the instance's bundles wired to itself and
+Being built around a `BundleTrackerCustomizer` [2], the Scripting Bundle Tracker monitors the instance's bundles wired to itself and
 scans the ones providing a `sling.resourceType` capability [3]. The wiring is created by placing a `Require-Capability` header in
 the bundles that provide the `sling.resourceType` capability:
 
@@ -56,14 +56,14 @@ Short answer: exactly like you deploy your code, preferably right next to it. Pa
   3. inside each `resourceType` folder create a `Version` folder; this has to follow the Semantic Versioning constraints described at [1];
   4. add your scripts, using the same naming conventions that you were used to from before [4];
   5. manually define your provide and require capabilities; just kidding; add the
-  [`org.apache.sling.scripting.maven.plugin`](../org-apache-sling-scripting-maven-plugin) to your build section and add its required
-  properties in the `maven-bundle-plugin`'s instructions (check [this](../examples/org-apache-sling-scripting-examplebundle/pom.xml)
+  [`scriptingbundle-maven-plugin`](https://github.com/apache/sling-scriptingbundle-maven-plugin) to your build section and add its required
+  properties in the `maven-bundle-plugin`'s instructions (check [this](https://github.com/apache/sling-org-apache-sling-scripting-bundle-tracker-it/tree/master/examples/org-apache-sling-scripting-examplebundle/pom.xml)
   example);
   6. `mvn clean sling:install`.
 
 ### Integration Tests
 
-To run the integration tests do:
+The integration tests are provided by the [`org.apache.sling.scripting.bundle.tracker.it`](https://github.com/apache/sling-org-apache-sling-scripting-bundle-tracker-it) project. To run the integration tests execute the following command:
 
 ```
 mvn clean verify -Pit
@@ -71,11 +71,13 @@ mvn clean verify -Pit
 
 ### Example
 
-To play around with a sling instance on localhost port 8080 (override with -Dhttp.port=<port>) that has the [examples](../examples) installed run:
+To play around with a Sling instance on localhost port 8080 (override with -Dhttp.port=<port>) that has the [examples](https://github.com/apache/sling-org-apache-sling-scripting-bundle-tracker-it/tree/master/examples/) installed run:
 
 ```
 mvn clean verify -Pexample
 ``` 
+
+from the [`org.apache.sling.scripting.bundle.tracker.it`](https://github.com/apache/sling-org-apache-sling-scripting-bundle-tracker-it) project.
 
 ## Resources
 [1] - https://semver.org/  
