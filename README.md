@@ -1,3 +1,7 @@
+[<img src="http://sling.apache.org/res/logos/sling.png"/>](http://sling.apache.org)
+
+ [![Build Status](https://builds.apache.org/buildStatus/icon?job=sling-org-apache-sling-scripting-bundle-tracker-1.8)](https://builds.apache.org/view/S-Z/view/Sling/job/sling-org-apache-sling-scripting-bundle-tracker-1.8) [![Test Status](https://img.shields.io/jenkins/t/https/builds.apache.org/view/S-Z/view/Sling/job/sling-org-apache-sling-scripting-bundle-tracker-1.8.svg)](https://builds.apache.org/view/S-Z/view/Sling/job/sling-org-apache-sling-scripting-bundle-tracker-1.8/test_results_analyzer/) [![Coverage Status](https://img.shields.io/jenkins/c/https/builds.apache.org/view/S-Z/view/Sling/job/sling-org-apache-sling-scripting-bundle-tracker-1.8.svg)](https://builds.apache.org/view/S-Z/view/Sling/job/sling-org-apache-sling-scripting-bundle-tracker-1.8/) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
+
 Apache Sling Scripting Bundle Tracker
 ====
 
@@ -84,4 +88,3 @@ from the [`org.apache.sling.scripting.bundle.tracker.it`](https://github.com/apa
 [2] - https://osgi.org/javadoc/r6/core/org/osgi/util/tracker/BundleTrackerCustomizer.html  
 [3] - https://osgi.org/download/r6/osgi.core-6.0.0.pdf, Page 41, section 3.3.3 "Bundle Capabilities"  
 [4] - https://sling.apache.org/documentation/the-sling-engine/url-to-script-resolution.html
-
