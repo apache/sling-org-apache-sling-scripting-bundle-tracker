@@ -31,17 +31,12 @@ import org.osgi.framework.hooks.service.ListenerHook;
 import org.osgi.service.component.annotations.Component;
 
 @Component
-public class BundledHooks implements FindHook, EventListenerHook
-{
+public class BundledHooks implements FindHook, EventListenerHook {
     @Override
-    public void find(BundleContext context, String name, String filter, boolean allServices, Collection<ServiceReference<?>> references)
-    {
-        if (!context.getBundle().getSymbolicName().equals("org.apache.sling.servlets.resolver"))
-        {
-            for (Iterator<ServiceReference<?>> iter = references.iterator(); iter.hasNext();)
-            {
-                if (iter.next().getProperty(BundledHooks.class.getName()) != null)
-                {
+    public void find(BundleContext context, String name, String filter, boolean allServices, Collection<ServiceReference<?>> references) {
+        if (!context.getBundle().getSymbolicName().equals("org.apache.sling.servlets.resolver")) {
+            for (Iterator<ServiceReference<?>> iter = references.iterator(); iter.hasNext();) {
+                if (iter.next().getProperty(BundledHooks.class.getName()) != null) {
                     iter.remove();
                 }
             }
@@ -50,10 +45,8 @@ public class BundledHooks implements FindHook, EventListenerHook
 
 
     @Override
-    public void event(ServiceEvent event, Map<BundleContext, Collection<ListenerHook.ListenerInfo>> listeners)
-    {
-        if (event.getServiceReference().getProperty(BundledHooks.class.getName()) != null)
-        {
+    public void event(ServiceEvent event, Map<BundleContext, Collection<ListenerHook.ListenerInfo>> listeners) {
+        if (event.getServiceReference().getProperty(BundledHooks.class.getName()) != null) {
             for (Iterator<Map.Entry<BundleContext, Collection<ListenerHook.ListenerInfo>>> entries = listeners.entrySet().iterator(); entries.hasNext();) {
                 if (!entries.next().getKey().getBundle().getSymbolicName().equals("org.apache.sling.servlets.resolver")) {
                     entries.remove();

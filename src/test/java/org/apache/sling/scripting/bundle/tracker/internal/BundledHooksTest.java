@@ -35,8 +35,7 @@ import org.osgi.framework.hooks.service.ListenerHook;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class BundledHooksTest
-{
+public class BundledHooksTest {
     @Test
     public void testFindHookFiltersOther() {
         BundledHooks hooks = new BundledHooks();
