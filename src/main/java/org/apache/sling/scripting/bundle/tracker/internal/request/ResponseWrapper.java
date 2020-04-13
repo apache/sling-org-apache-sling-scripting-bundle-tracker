@@ -19,13 +19,14 @@
 package org.apache.sling.scripting.bundle.tracker.internal.request;
 
 import java.io.PrintWriter;
+import java.util.concurrent.atomic.AtomicReference;
 
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.wrappers.SlingHttpServletResponseWrapper;
 
 public class ResponseWrapper extends SlingHttpServletResponseWrapper
 {
-    private volatile PrintWriter writer;
+    private final AtomicReference<PrintWriter> writer = new AtomicReference<>();
     /**
      * Create a wrapper for the supplied wrappedRequest
      *
@@ -38,10 +39,13 @@ public class ResponseWrapper extends SlingHttpServletResponseWrapper
 
     @Override
     public PrintWriter getWriter() {
-        if (writer == null) {
-            writer = new PrintWriter(new OnDemandWriter(getResponse()));
+        PrintWriter result = writer.get();
+        if (result == null) {
+            result = new PrintWriter(new OnDemandWriter(getResponse()));
+            if (!writer.compareAndSet(null, result)) {
+                result = writer.get();
+            }
         }
-
-        return writer;
+        return result;
     }
 }
