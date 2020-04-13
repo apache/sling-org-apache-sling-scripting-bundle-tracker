@@ -77,7 +77,7 @@ public class RequestWrapper extends SlingHttpServletRequestWrapper {
             requestDispatcherOptions.setAddSelectors(options.getAddSelectors());
             requestDispatcherOptions.setReplaceSelectors(options.getReplaceSelectors());
             requestDispatcherOptions.setReplaceSuffix(options.getReplaceSuffix());
-            String forcedResourceType = options.getForceResourceType();
+            /*String forcedResourceType = options.getForceResourceType();
             if (StringUtils.isNotEmpty(forcedResourceType)) {
                 for (ResourceType wiredResourceType : wiredResourceTypes) {
                     String type = wiredResourceType.getType();
@@ -86,7 +86,7 @@ public class RequestWrapper extends SlingHttpServletRequestWrapper {
                         break;
                     }
                 }
-            }
+            }*/
             return requestDispatcherOptions;
         }
         return null;
