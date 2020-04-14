@@ -27,18 +27,18 @@ class OnDemandWriter extends Writer {
 
     private final ServletResponse response;
 
-    private Writer delegatee;
+    private Writer delegate;
 
     OnDemandWriter(ServletResponse response) {
         this.response = response;
     }
 
     private Writer getWriter() throws IOException {
-        if (delegatee == null) {
-            delegatee = response.getWriter();
+        if (delegate == null) {
+            delegate = response.getWriter();
         }
 
-        return delegatee;
+        return delegate;
     }
 
     @Override
@@ -79,7 +79,7 @@ class OnDemandWriter extends Writer {
     @Override
     public void flush() throws IOException {
         synchronized (lock) {
-            Writer writer = delegatee;
+            Writer writer = delegate;
             if (writer != null) {
                 writer.flush();
             }
@@ -89,14 +89,14 @@ class OnDemandWriter extends Writer {
     @Override
     public void close() throws IOException {
         synchronized (lock) {
-            // flush and close the delegatee if existing, otherwise ignore
-            Writer writer = delegatee;
+            // flush and close the delegate if existing, otherwise ignore
+            Writer writer = delegate;
             if (writer != null) {
                 writer.flush();
                 writer.close();
 
-                // drop the delegatee now
-                delegatee = null;
+                // drop the delegate now
+                delegate = null;
             }
         }
     }
