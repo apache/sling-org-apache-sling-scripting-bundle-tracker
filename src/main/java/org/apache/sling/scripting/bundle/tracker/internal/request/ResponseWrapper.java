@@ -24,16 +24,14 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.wrappers.SlingHttpServletResponseWrapper;
 
-public class ResponseWrapper extends SlingHttpServletResponseWrapper
-{
+public class ResponseWrapper extends SlingHttpServletResponseWrapper {
     private final AtomicReference<PrintWriter> writer = new AtomicReference<>();
     /**
      * Create a wrapper for the supplied wrappedRequest
      *
      * @param wrappedResponse The response
      */
-    public ResponseWrapper(SlingHttpServletResponse wrappedResponse)
-    {
+    public ResponseWrapper(SlingHttpServletResponse wrappedResponse) {
         super(wrappedResponse);
     }
 
