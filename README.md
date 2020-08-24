@@ -5,6 +5,12 @@
 Apache Sling Scripting Bundle Tracker
 ====
 
+## DEPRECATED?
+
+Note that this code has **moved to the [o.a.s.servlets.resolver](https://github.com/apache/sling-org-apache-sling-servlets-resolver/tree/master/src/main/java/org/apache/sling/servlets/resolver/bundle/tracker) module** - as I write this, 
+[discussions are ongoing](https://lists.apache.org/thread.html/r73ffc8f89706444db41cf9e3688799be58b41cd5f16c49468ab4bda5%40%3Cdev.sling.apache.org%3E)
+on the Sling dev list on whether this module needs to be deprecated or repurposed.
+
 ## What
 The `org.apache.sling.scripting.bundle.tracker` bundle represents an add-on module that can be deployed on a Sling 10 instance or newer to
 enhance the scripting resolving capabilities. Being an add-on, the bundle hooks into Sling's current mechanisms for
