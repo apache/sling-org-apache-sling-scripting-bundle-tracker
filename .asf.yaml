@@ -1,0 +1,7 @@
+github:
+  description: "Apache Sling Scripting Bundle Tracker (deprecated)"
+  homepage: "https://sling.apache.org"
+  labels:
+    - java
+    - sling
+    - deprecated
